@@ -9,6 +9,8 @@ public class LoginTest extends BaseTest {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openLoginPage();
         loginPage.loginSetUp(login, password);
-
+        loginPage.isDashBoardPage();
+        administrationMenu.projectButton();
+        projectPage.addNewProject();
     }
 }

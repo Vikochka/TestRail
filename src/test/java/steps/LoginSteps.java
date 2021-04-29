@@ -11,7 +11,7 @@ public class LoginSteps {
         this.driver = driver;
     }
 
-    @Step("Login by user:Viktoria Yermakovich")
+    @Step("Login by user:Viktoriya Yermakovich")
     public void login(String login, String password) {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openLoginPage();
