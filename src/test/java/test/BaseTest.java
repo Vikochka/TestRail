@@ -7,26 +7,29 @@ import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import page.AdministrationMenu;
-import page.LoginPage;
+import page.AddProjectPage;
 import page.ProjectPage;
+import steps.AddProjectSteps;
+import steps.AdministrationSteps;
 import steps.LoginSteps;
+import steps.ProjectSteps;
 
 import java.util.concurrent.TimeUnit;
 
 @Listeners
 public class BaseTest {
     public String login = "erviktoria19@gmail.com";
-    public String password = "Hipstr19";
+    public String password = "TmUJjovDfbb3qcsznogR";
     WebDriver driver;
-    LoginPage loginPage;
     LoginSteps loginStep;
+    ProjectSteps projectSteps;
+    AdministrationSteps administrationSteps;
     ProjectPage projectPage;
-    AdministrationMenu administrationMenu;
+    AddProjectPage addProjectPage;
+    AddProjectSteps addProjectSteps;
 
     @BeforeMethod
     public void setup(ITestContext context) {
-        // driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
         WebDriverManager.chromedriver().driverVersion("90.0.4430.24").setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
@@ -35,10 +38,12 @@ public class BaseTest {
         String variable = "driver";
         System.out.println("Setting driver into context with variable name " + variable);
         context.setAttribute(variable, driver);
-        loginPage = new LoginPage(driver);
         loginStep = new LoginSteps(driver);
+        administrationSteps = new AdministrationSteps(driver);
+        projectSteps = new ProjectSteps(driver);
         projectPage = new ProjectPage(driver);
-        administrationMenu=new AdministrationMenu(driver);
+        addProjectPage = new AddProjectPage(driver);
+        addProjectSteps = new AddProjectSteps(driver);
     }
 
     @AfterMethod(alwaysRun = true, description = "Closing browser")

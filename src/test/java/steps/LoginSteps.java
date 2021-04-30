@@ -4,8 +4,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import page.LoginPage;
 
-public class LoginSteps {
-    WebDriver driver;
+public class LoginSteps extends BaseSteps {
 
     public LoginSteps(WebDriver driver) {
         this.driver = driver;
@@ -13,9 +12,9 @@ public class LoginSteps {
 
     @Step("Login by user:Viktoriya Yermakovich")
     public void login(String login, String password) {
-        LoginPage loginPage = new LoginPage(driver);
+        loginPage= new LoginPage(driver);
         loginPage.openLoginPage();
         loginPage.loginSetUp(login, password);
-        loginPage.isDashBoardPage();
+        loginPage.isDashBoardPageOpen();
     }
 }
