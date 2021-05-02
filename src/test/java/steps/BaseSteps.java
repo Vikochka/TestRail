@@ -2,10 +2,7 @@ package steps;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
-import page.AddProjectPage;
-import page.AdministrationMenu;
-import page.LoginPage;
-import page.ProjectPage;
+import pages.*;
 
 public class BaseSteps {
     WebDriver driver;
@@ -14,6 +11,7 @@ public class BaseSteps {
     AdministrationMenu administrationMenu;
     ProjectPage projectPage;
     AddProjectSteps addProjectSteps;
+    TestCaseAndSuitePage testCaseAndSuitePage;
 
     @BeforeMethod
     public void setUPSteps() {
@@ -22,5 +20,6 @@ public class BaseSteps {
         loginPage = new LoginPage(driver);
         projectPage = new ProjectPage(driver);
         addProjectSteps = new AddProjectSteps(driver);
+        testCaseAndSuitePage =new TestCaseAndSuitePage(driver);
     }
 }

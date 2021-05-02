@@ -1,7 +1,7 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
-import page.AdministrationMenu;
+import pages.AdministrationMenu;
 
 public class AdministrationSteps extends BaseSteps {
 

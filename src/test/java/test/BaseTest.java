@@ -7,12 +7,9 @@ import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import page.AddProjectPage;
-import page.ProjectPage;
-import steps.AddProjectSteps;
-import steps.AdministrationSteps;
-import steps.LoginSteps;
-import steps.ProjectSteps;
+import pages.AddProjectPage;
+import pages.ProjectPage;
+import steps.*;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,6 +24,7 @@ public class BaseTest {
     ProjectPage projectPage;
     AddProjectPage addProjectPage;
     AddProjectSteps addProjectSteps;
+    TestCaseSteps testCaseSteps;
 
     @BeforeMethod
     public void setup(ITestContext context) {
@@ -44,6 +42,7 @@ public class BaseTest {
         projectPage = new ProjectPage(driver);
         addProjectPage = new AddProjectPage(driver);
         addProjectSteps = new AddProjectSteps(driver);
+        testCaseSteps=new TestCaseSteps(driver);
     }
 
     @AfterMethod(alwaysRun = true, description = "Closing browser")
