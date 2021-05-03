@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 public class ProjectTest extends BaseTest {
 
     @Test(description = "Add new project and save")
-    public void addProjectTest() {
+    public void createAndDeleteProject() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
         projectPage.clickAddNewProject();

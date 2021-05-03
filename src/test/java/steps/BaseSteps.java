@@ -20,6 +20,6 @@ public class BaseSteps {
         loginPage = new LoginPage(driver);
         projectPage = new ProjectPage(driver);
         addProjectSteps = new AddProjectSteps(driver);
-        testCaseAndSuitePage =new TestCaseAndSuitePage(driver);
+        testCaseAndSuitePage = new TestCaseAndSuitePage(driver);
     }
 }

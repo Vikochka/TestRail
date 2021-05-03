@@ -8,6 +8,8 @@ package pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
@@ -16,7 +18,9 @@ import static elemtnts.CheckLabel.CHECK_LABEL_XPATH;
 public class ProjectPage extends BasePage {
     public static final String ADD_PROJECT_BUTTON_XPATH = "//*[@class='button-group grid-buttons bottom']/*[contains(text(),'Add Project')]";
     public static final String PROJECT_VALIDATION_XPATH = "//*[@class='hidden hoverAction']/../a[text()='%s']";
-    public static final String SMALL_ICON_BUTTON_XPATH = "//*[text()='%s']/../*/a/div[@class='icon-small-openswindow']";
+    // public static final String SMALL_ICON_BUTTON_XPATH = "//*[text()='%s']/../*/a/div[@class='icon-small-openswindow']";
+    public static final By SMALL_ICON_CSS = By.cssSelector(".icon-small-openswindow");
+    public static final String PAGE_TITLE_XPATH = "//*[@id='content-header']//*[@class='content-header-title page_title'][contains(text(),'%s')]";
     public static final String DELETE_ICON_XPATH = "//*[text()='%s']/../..//*[@class='icon-small-delete']";
     public static final By CONFIRMATION_ID = By.id("ui-dialog-title-deleteDialog");
     public static final By CHECKBOX_CONFIRMATION_XPATH = By.xpath("//*[contains(@class,'ui-dialog-content')]//*[@name='deleteCheckbox']");
@@ -36,8 +40,20 @@ public class ProjectPage extends BasePage {
 
     @Step("Click at small icon")
     public void clickSmallIcon(String projectName) {
-        driver.findElement(By.xpath(String.format(SMALL_ICON_BUTTON_XPATH, projectName))).click();
-
+        try {
+            Actions action = new Actions(driver);
+            WebElement moveProject = driver.findElement(By.xpath(String.format(PROJECT_VALIDATION_XPATH, projectName)));
+            action.moveToElement(moveProject).build().perform();
+            action.moveToElement(moveProject).moveToElement(driver.findElement(SMALL_ICON_CSS)).clickAndHold();
+            try {
+                driver.findElement(By.xpath(String.format(PAGE_TITLE_XPATH, projectName))).isDisplayed();
+            } catch (Exception exception) {
+                Assert.fail("Page was not opened");
+            }
+        } catch (Exception exception) {
+            Assert.fail("Icon was not appeared");
+        }
+        // driver.findElement(By.xpath(String.format(SMALL_ICON_BUTTON_XPATH, projectName))).click();
     }
 
     @Step("Click delete project")

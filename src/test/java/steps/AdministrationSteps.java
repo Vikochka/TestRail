@@ -9,8 +9,8 @@ public class AdministrationSteps extends BaseSteps {
         this.driver = driver;
     }
 
-    public void admin(String name){
-        administrationMenu =new AdministrationMenu(driver);
+    public void admin(String name) {
+        administrationMenu = new AdministrationMenu(driver);
         administrationMenu.clickAdmin();
         administrationMenu.menu(name);
         administrationMenu.isTransition(name);

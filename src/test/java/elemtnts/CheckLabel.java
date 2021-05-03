@@ -8,7 +8,7 @@ public class CheckLabel {
     WebDriver driver;
     String label;
 
-    public CheckLabel(WebDriver driver,String label) {
+    public CheckLabel(WebDriver driver, String label) {
         this.driver = driver;
         this.label = label;
     }

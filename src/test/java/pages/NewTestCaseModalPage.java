@@ -6,12 +6,15 @@ import elemtnts.TextAreaTestCase;
 import modals.TestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
+//MASSAGE FOR CREATING TEST CASE "Successfully added the new test case."
 
 public class NewTestCaseModalPage extends BasePage {
     public static final By ADD_TEST_CASE_BUTTON_ID = By.id("accept");
     public static final By ADD_AND_NEXT_TEST_CASE_BUTTON_ID = By.id("accept_and_next");
     public static final By CANCEL_TEST_CASE_BUTTON_ID = By.id("accept_and_next");
+    public static final By SUCCESS_CREATE_TEST_CASE_MESSAGE = By.xpath("//*[contains(@class,'message-success')][contains(text(),'Successfully added')]");
 
     public NewTestCaseModalPage(WebDriver driver) {
         super(driver);
@@ -27,16 +30,26 @@ public class NewTestCaseModalPage extends BasePage {
         new InputTestCase(driver, "References").inputTestCase(testCase.getReferences());
         new DropDownTestCase(driver, "Automation Type").selectForTestCase(testCase.getAutomationType());
         new TextAreaTestCase(driver, "Preconditions").textAreaTestCase(testCase.getPreconditions());
-        new TextAreaTestCase(driver,"Steps").textAreaTestCase(testCase.getSteps());
-        new TextAreaTestCase(driver,"Expected Result").textAreaTestCase(testCase.getExpectedResult());
+        new TextAreaTestCase(driver, "Steps").textAreaTestCase(testCase.getSteps());
+        new TextAreaTestCase(driver, "Expected Result").textAreaTestCase(testCase.getExpectedResult());
     }
 
     public void clickSaveTestCase() {
         driver.findElement(ADD_TEST_CASE_BUTTON_ID).click();
+        try {
+            driver.findElement(SUCCESS_CREATE_TEST_CASE_MESSAGE).isDisplayed();
+        } catch (Exception e) {
+            Assert.fail("Test case was not added");
+        }
     }
 
     public void clickSaveAndNextTestCase() {
         driver.findElement(ADD_AND_NEXT_TEST_CASE_BUTTON_ID).click();
+        try {
+            driver.findElement(SUCCESS_CREATE_TEST_CASE_MESSAGE).isDisplayed();
+        } catch (Exception e) {
+            Assert.fail("Message was not appeared");
+        }
     }
 
     public void clickCancelTestCase() {

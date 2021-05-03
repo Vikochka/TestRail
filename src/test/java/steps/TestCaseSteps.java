@@ -14,6 +14,7 @@ public class TestCaseSteps extends BaseSteps {
     public void createTestCaseAndClickSaveButton(TestCase testCase){
         TestCaseAndSuitePage testCaseAndSuitePage = new TestCaseAndSuitePage(driver);
         testCaseAndSuitePage.openTestCasePage();
+        testCaseAndSuitePage.clickAddTestCase();
         NewTestCaseModalPage newTestCaseModalPage=new NewTestCaseModalPage(driver);
         newTestCaseModalPage.createTestCase(testCase);
         newTestCaseModalPage.clickSaveTestCase();
@@ -22,6 +23,7 @@ public class TestCaseSteps extends BaseSteps {
     public void createTestCaseAndClickSaveAndNextButton(TestCase testCase){
         TestCaseAndSuitePage testCaseAndSuitePage = new TestCaseAndSuitePage(driver);
         testCaseAndSuitePage.openTestCasePage();
+        testCaseAndSuitePage.clickAddTestCase();
         NewTestCaseModalPage newTestCaseModalPage=new NewTestCaseModalPage(driver);
         newTestCaseModalPage.createTestCase(testCase);
         newTestCaseModalPage.clickSaveAndNextTestCase();
@@ -30,6 +32,7 @@ public class TestCaseSteps extends BaseSteps {
     public void createTestCaseAndClickCancelButton(TestCase testCase){
         TestCaseAndSuitePage testCaseAndSuitePage = new TestCaseAndSuitePage(driver);
         testCaseAndSuitePage.openTestCasePage();
+        testCaseAndSuitePage.clickAddTestCase();
         NewTestCaseModalPage newTestCaseModalPage=new NewTestCaseModalPage(driver);
         newTestCaseModalPage.createTestCase(testCase);
         newTestCaseModalPage.clickCancelTestCase();

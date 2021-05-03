@@ -19,7 +19,7 @@ import static elemtnts.CheckLabel.CHECK_LABEL_XPATH;
 
 public class AdministrationMenu extends BasePage {
     public static final By ADMIN_BUTTON_XPATH = By.id("navigation-admin");
-    public static final String MENU_XPATH ="//*[contains(@id,'navigation-sub')]/../*[contains(text(),'Projects')]";
+    public static final String MENU_XPATH = "//*[contains(@id,'navigation-sub')]/../*[contains(text(),'Projects')]";
 
 
     public AdministrationMenu(WebDriver driver) {
@@ -33,7 +33,7 @@ public class AdministrationMenu extends BasePage {
 
     @Step("Choose  administration")
     public void menu(String name) {
-        driver.findElement(By.xpath(String.format(MENU_XPATH,name))).click();
+        driver.findElement(By.xpath(String.format(MENU_XPATH, name))).click();
     }
 
 

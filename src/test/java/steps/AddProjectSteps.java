@@ -9,9 +9,9 @@ public class AddProjectSteps extends BaseSteps {
         this.driver = driver;
     }
 
-    public void createProject(String name, String announcement,String radio){
+    public void createProject(String name, String announcement, String radio) {
         addProjectPage = new AddProjectPage(driver);
-        addProjectPage.createProject(name,announcement,radio);
+        addProjectPage.createProject(name, announcement, radio);
         addProjectPage.clickAddProjectButton();
     }
 }
