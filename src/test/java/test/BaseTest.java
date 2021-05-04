@@ -33,9 +33,6 @@ public class BaseTest {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         context.setAttribute("driver", driver);
-        String variable = "driver";
-        System.out.println("Setting driver into context with variable name " + variable);
-        context.setAttribute(variable, driver);
         loginStep = new LoginSteps(driver);
         administrationSteps = new AdministrationSteps(driver);
         projectSteps = new ProjectSteps(driver);

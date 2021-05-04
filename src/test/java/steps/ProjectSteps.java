@@ -1,26 +1,29 @@
 package steps;
 
 import org.openqa.selenium.WebDriver;
+import pages.AddProjectPage;
 import pages.ProjectPage;
 
-/*НЕ РАБОТАЕТ addProject()*/
-public class ProjectSteps extends AddProjectSteps {
+public class ProjectSteps {
+    WebDriver driver;
 
     public ProjectSteps(WebDriver driver) {
-        super(driver);
         this.driver = driver;
     }
 
-    public void addProject(String labelName, String radio, String projectName, String announcement) {
-        projectPage = new ProjectPage(driver);
+    public void addProject(String radio, String projectName, String announcement) {
+        ProjectPage projectPage = new ProjectPage(driver);
         projectPage.clickAddNewProject();
-        projectPage.isPageOpen(labelName);
-        addProjectSteps.createProject(projectName, announcement, radio);
+
+        AddProjectPage addProjectPage = new AddProjectPage(driver);
+        addProjectPage.isPageOpen();
+        addProjectPage.createProject(projectName, announcement, radio);
+        addProjectPage.clickAddProjectButton();
         projectPage.validationProject(projectName);
     }
 
     public void deleteProject(String projectName) {
-        projectPage = new ProjectPage(driver);
+        ProjectPage projectPage = new ProjectPage(driver);
         projectPage.validationProject(projectName);
         projectPage.DeleteProject(projectName);
         projectPage.okDeleteButton(projectName);

@@ -9,7 +9,6 @@ package pages;
  * Site Settings
  */
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -26,18 +25,14 @@ public class AdministrationMenu extends BasePage {
         super(driver);
     }
 
-    @Step("Click on admin button")
     public void clickAdmin() {
         driver.findElement(ADMIN_BUTTON_XPATH).click();
     }
 
-    @Step("Choose  administration")
     public void menu(String name) {
         driver.findElement(By.xpath(String.format(MENU_XPATH, name))).click();
     }
 
-
-    @Step("Check that: {name} open")
     public void isTransition(String name) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(CHECK_LABEL_XPATH, name))));

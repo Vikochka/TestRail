@@ -13,7 +13,7 @@ public class BaseSteps {
     AddProjectSteps addProjectSteps;
     TestCaseAndSuitePage testCaseAndSuitePage;
 
-    @BeforeMethod
+
     public void setUPSteps() {
         addProjectPage = new AddProjectPage(driver);
         administrationMenu = new AdministrationMenu(driver);

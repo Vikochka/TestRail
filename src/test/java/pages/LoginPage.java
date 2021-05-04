@@ -16,12 +16,10 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
-    @Step("Open LoginPage")
     public void openLoginPage() {
         driver.get(URL);
     }
 
-    @Step("Login by user {username}")
     public void loginSetUp(String login, String password) {
         driver.findElement(By.id(LOGIN_INPUT_ID)).sendKeys(login);
         driver.findElement(By.id(PASSWORD_INPUT_ID)).sendKeys(password);

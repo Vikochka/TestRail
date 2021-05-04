@@ -8,8 +8,10 @@ public class ProjectTest extends BaseTest {
     public void createAndDeleteProject() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-        projectPage.clickAddNewProject();
-        addProjectSteps.createProject("TestRail", "Diploma project", "Use multiple test ");
-        projectSteps.deleteProject("TestRail");
+        projectSteps.addProject("Use a single repository for all cases","TestRail",
+                "Test Case Management");
+       // projectPage.clickAddNewProject();
+       // addProjectSteps.createProject("TestRail", "Diploma project", "Use multiple test ");
+       // projectSteps.deleteProject("TestRail");
     }
 }

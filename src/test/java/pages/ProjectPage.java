@@ -38,21 +38,20 @@ public class ProjectPage extends BasePage {
     }
 
 
+    //https://vikaka1.testrail.io/index.php?/projects/overview/55
     @Step("Click at small icon")
     public void clickSmallIcon(String projectName) {
-        try {
             Actions action = new Actions(driver);
-            WebElement moveProject = driver.findElement(By.xpath(String.format(PROJECT_VALIDATION_XPATH, projectName)));
-            action.moveToElement(moveProject).build().perform();
-            action.moveToElement(moveProject).moveToElement(driver.findElement(SMALL_ICON_CSS)).clickAndHold();
+            WebElement project = driver.findElement(By.xpath(String.format(PROJECT_VALIDATION_XPATH, projectName)));
+            String projectId = project.getAttribute("href").split("/")[7];
+            driver.get(URL + "?/projects/overview/" + projectId);
+          //  action.moveToElement(moveProject).build().perform();
+            //action.moveToElement(moveProject).moveToElement(driver.findElement(SMALL_ICON_CSS)).click().build().perform();
             try {
                 driver.findElement(By.xpath(String.format(PAGE_TITLE_XPATH, projectName))).isDisplayed();
             } catch (Exception exception) {
                 Assert.fail("Page was not opened");
             }
-        } catch (Exception exception) {
-            Assert.fail("Icon was not appeared");
-        }
         // driver.findElement(By.xpath(String.format(SMALL_ICON_BUTTON_XPATH, projectName))).click();
     }
 
@@ -65,7 +64,6 @@ public class ProjectPage extends BasePage {
 
     }
 
-    @Step("Click OK button")
     public boolean okDeleteButton(String projectName) {
         driver.findElement(OK_BUTTON_CONFIRMATION_XPATH).click();
         driver.findElement(SUCCESS_DELETE_MESSAGE_CSS).isDisplayed();
@@ -78,7 +76,6 @@ public class ProjectPage extends BasePage {
         }
     }
 
-    @Step("Check that project was added")
     public void validationProject(String name) {
         try {
             driver.findElement(By.xpath(String.format(PROJECT_VALIDATION_XPATH, name))).isDisplayed();
@@ -88,7 +85,6 @@ public class ProjectPage extends BasePage {
 
     }
 
-    @Step("Check that Add Project page open")
     public void isPageOpen(String labelName) {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(CHECK_LABEL_XPATH, labelName))));
@@ -97,7 +93,6 @@ public class ProjectPage extends BasePage {
         }
     }
 
-    @Step("Check that Confirmation window appeared")
     private void isConfirmationAppeared() {
         try {
             wait.until(ExpectedConditions.visibilityOfElementLocated(CONFIRMATION_ID));

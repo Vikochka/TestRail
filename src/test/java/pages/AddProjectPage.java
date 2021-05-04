@@ -3,6 +3,10 @@ package pages;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.Assert;
+
+import static elemtnts.CheckLabel.CHECK_LABEL_XPATH;
 
 public class AddProjectPage extends BasePage {
 
@@ -17,7 +21,6 @@ public class AddProjectPage extends BasePage {
         super(driver);
     }
 
-    @Step("Create project")
     public void createProject(String projectName, String announcement, String radio) {
         driver.findElement(NAME_INPUT_ID).sendKeys(projectName);
         driver.findElement(ANNOUNCEMENT_TEXTAREA_ID).sendKeys(announcement);
@@ -26,14 +29,19 @@ public class AddProjectPage extends BasePage {
         driver.findElement(By.xpath(String.format(RADIO_BUTTON_XPATH, radio))).click();
     }
 
-    @Step("Click 'Add Project' Button")
     public void clickAddProjectButton() {
         driver.findElement(ADD_PROJECT_BUTTON_XPATH).click();
     }
 
-
-    @Step("Click Cancel Button")
     public void clickCancelButton() {
         driver.findElement(CANCEL_BUTTON_XPATH).click();
+    }
+
+    public void isPageOpen() {
+        try {
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.format(CHECK_LABEL_XPATH, "Add Project"))));
+        } catch (Exception ex) {
+            Assert.fail("Add page was not opened");
+        }
     }
 }
