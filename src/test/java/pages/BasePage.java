@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
-    public static final String URL = "https://vikaka1.testrail.io/index.php"; //будет меняться
+    public static final String URL = "https://vikakatestrail.testrail.io/index.php"; //будет меняться
     WebDriver driver;
     WebDriverWait wait;
 

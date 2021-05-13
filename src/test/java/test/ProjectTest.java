@@ -8,19 +8,16 @@ public class ProjectTest extends BaseTest {
     public void createProjectTest() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-        projectSteps.addProject("Use a single repository for all cases", "TestRail25",
+        projectSteps.addProject("Use multiple test suites to manage cases", "TestRail",
                 "Test Case Management");
-        // projectPage.clickAddNewProject();
-        // addProjectSteps.createProject("TestRail", "Diploma project", "Use multiple test ");
-        // projectSteps.deleteProject("TestRail");
     }
 
-    @Test(description = "Add new project and save")
+    @Test(description = "Delete project ")
     public void deleteProjectTest() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-        projectSteps.addProject("Use a single repository for all cases", "1TestRailDelete",
+        projectSteps.addProject("Use a single repository for all cases", "DeleteTestRail",
                 "Test Case Management");
-        projectSteps.deleteProject("1TestRailDelete");
+        projectSteps.deleteProject("DeleteTestRail");
     }
 }

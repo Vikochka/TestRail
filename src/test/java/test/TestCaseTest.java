@@ -12,11 +12,8 @@ public class TestCaseTest extends BaseTest {
         administrationSteps.admin("Project");
      //   projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
-        TestCase testCase = new TestCase("TestRail", "Test Case", "Test Case(Text)", "Automated", "High", "",
-                "-", "None", "Быть зарегистрированным пользователем", "1.Открыть страницу логина. " +
-                "2.Ввести логин " +
-                "3.Ввести пароль." +
-                " 4.Кликнуть конпку Логин", "Откроется Dashboard page");
+        TestCase testCase = new TestCase("TestRun", "Test Case", "Test Case(Text)", "Automated", "High", "",
+                "-", "None", "Быть зарегистрированным пользователем", "steps", "Open Dashboard page");
         testCaseSteps.createTestSuite("Login", " ");
         testCaseSteps.createTestCase(testCase);
         testCaseSteps.saveButton();
@@ -26,7 +23,7 @@ public class TestCaseTest extends BaseTest {
     public void createTestcaseTest() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-        projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
+       // projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
 
         TestCase testCase = new TestCase("Login", "Test Case", "Test Case(Text)", "Automated",
@@ -49,7 +46,6 @@ public class TestCaseTest extends BaseTest {
         testCaseSteps.addTestCase(testCase2);
         testCaseSteps.saveButton();
     }
-
 
     @Test(description = "Delete test-case:{testCaseName}")
     public void deleteTestCaseTest(){

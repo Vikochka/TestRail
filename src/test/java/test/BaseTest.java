@@ -14,8 +14,8 @@ import java.util.concurrent.TimeUnit;
 
 @Listeners
 public class BaseTest {
-    public String login = "erviktoria19@gmail.com";
-    public String password = "TmUJjovDfbb3qcsznogR";
+    public String login = "vikakatestrail@mailinator.com";
+    public String password = "Rs5XGzbZ4VBqS5pnrs.o";
     WebDriver driver;
     LoginSteps loginStep;
     ProjectSteps projectSteps;
