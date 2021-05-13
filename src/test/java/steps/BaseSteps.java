@@ -10,7 +10,6 @@ public class BaseSteps {
     LoginPage loginPage;
     AdministrationMenu administrationMenu;
     ProjectPage projectPage;
-    AddProjectSteps addProjectSteps;
     TestCaseAndSuitePage testCaseAndSuitePage;
 
 
@@ -19,7 +18,6 @@ public class BaseSteps {
         administrationMenu = new AdministrationMenu(driver);
         loginPage = new LoginPage(driver);
         projectPage = new ProjectPage(driver);
-        addProjectSteps = new AddProjectSteps(driver);
         testCaseAndSuitePage = new TestCaseAndSuitePage(driver);
     }
 }

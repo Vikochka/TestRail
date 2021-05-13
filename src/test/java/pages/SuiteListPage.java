@@ -13,12 +13,8 @@ public class SuiteListPage extends BasePage {
         super(driver);
     }
 
-    public void openSuiteListPage() {
-        driver.get("https://vikaka1.testrail.io/index.php?/suites/edit/6");
-    }
-
-    public void createSuite(String nameSuite, String descriptionSuite) {
-        driver.findElement(SUITE_NAME_ID).sendKeys(nameSuite);
+    public void createSuite(String suiteName, String descriptionSuite) {
+        driver.findElement(SUITE_NAME_ID).sendKeys(suiteName);
         driver.findElement(DESCRIPTION_SUITE_ID).sendKeys(descriptionSuite);
     }
 

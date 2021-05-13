@@ -14,7 +14,6 @@ public class ProjectSteps {
     public void addProject(String radio, String projectName, String announcement) {
         ProjectPage projectPage = new ProjectPage(driver);
         projectPage.clickAddNewProject();
-
         AddProjectPage addProjectPage = new AddProjectPage(driver);
         addProjectPage.isPageOpen();
         addProjectPage.createProject(projectName, announcement, radio);

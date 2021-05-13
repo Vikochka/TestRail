@@ -7,7 +7,6 @@ import org.testng.ITestContext;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import pages.AddProjectPage;
 import pages.ProjectPage;
 import steps.*;
 
@@ -20,11 +19,10 @@ public class BaseTest {
     WebDriver driver;
     LoginSteps loginStep;
     ProjectSteps projectSteps;
-    AdministrationSteps administrationSteps;
     ProjectPage projectPage;
-    AddProjectPage addProjectPage;
-    AddProjectSteps addProjectSteps;
+    AdministrationSteps administrationSteps;
     TestCaseSteps testCaseSteps;
+    TestRunSteps testRunSteps;
 
     @BeforeMethod
     public void setup(ITestContext context) {
@@ -36,10 +34,9 @@ public class BaseTest {
         loginStep = new LoginSteps(driver);
         administrationSteps = new AdministrationSteps(driver);
         projectSteps = new ProjectSteps(driver);
-        projectPage = new ProjectPage(driver);
-        addProjectPage = new AddProjectPage(driver);
-        addProjectSteps = new AddProjectSteps(driver);
-        testCaseSteps=new TestCaseSteps(driver);
+        projectPage =new ProjectPage(driver);
+        testCaseSteps = new TestCaseSteps(driver);
+        testRunSteps = new TestRunSteps(driver);
     }
 
     @AfterMethod(alwaysRun = true, description = "Closing browser")

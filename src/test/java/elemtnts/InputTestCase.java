@@ -8,7 +8,7 @@ import org.testng.Assert;
 public class InputTestCase {
     WebDriver driver;
     String label;
-    public static final String INPUT_TEST_CASE_XPATH = "//*[contains(@class,'form-fields')]/../label[contains(text(),'%s')]";
+    public static final String INPUT_TEST_CASE_XPATH = "//*[contains(text(),'%s')]/../input[contains(@class,'form-fields')]";
 
     public InputTestCase(WebDriver driver, String label) {
         this.driver = driver;

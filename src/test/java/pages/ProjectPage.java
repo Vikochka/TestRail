@@ -18,8 +18,6 @@ import static elemtnts.CheckLabel.CHECK_LABEL_XPATH;
 public class ProjectPage extends BasePage {
     public static final String ADD_PROJECT_BUTTON_XPATH = "//*[@class='button-group grid-buttons bottom']/*[contains(text(),'Add Project')]";
     public static final String PROJECT_VALIDATION_XPATH = "//*[@class='hidden hoverAction']/../a[text()='%s']";
-    // public static final String SMALL_ICON_BUTTON_XPATH = "//*[text()='%s']/../*/a/div[@class='icon-small-openswindow']";
-    public static final By SMALL_ICON_CSS = By.cssSelector(".icon-small-openswindow");
     public static final String PAGE_TITLE_XPATH = "//*[@id='content-header']//*[@class='content-header-title page_title'][contains(text(),'%s')]";
     public static final String DELETE_ICON_XPATH = "//*[text()='%s']/../..//*[@class='icon-small-delete']";
     public static final By CONFIRMATION_ID = By.id("ui-dialog-title-deleteDialog");
@@ -31,28 +29,22 @@ public class ProjectPage extends BasePage {
         super(driver);
     }
 
-
     @Step("Click on add project")
     public void clickAddNewProject() {
         driver.findElement(By.xpath(String.format(ADD_PROJECT_BUTTON_XPATH))).click();
     }
 
-
     //https://vikaka1.testrail.io/index.php?/projects/overview/55
     @Step("Click at small icon")
     public void clickSmallIcon(String projectName) {
-            Actions action = new Actions(driver);
             WebElement project = driver.findElement(By.xpath(String.format(PROJECT_VALIDATION_XPATH, projectName)));
             String projectId = project.getAttribute("href").split("/")[7];
             driver.get(URL + "?/projects/overview/" + projectId);
-          //  action.moveToElement(moveProject).build().perform();
-            //action.moveToElement(moveProject).moveToElement(driver.findElement(SMALL_ICON_CSS)).click().build().perform();
             try {
                 driver.findElement(By.xpath(String.format(PAGE_TITLE_XPATH, projectName))).isDisplayed();
             } catch (Exception exception) {
                 Assert.fail("Page was not opened");
             }
-        // driver.findElement(By.xpath(String.format(SMALL_ICON_BUTTON_XPATH, projectName))).click();
     }
 
     @Step("Click delete project")
@@ -64,16 +56,9 @@ public class ProjectPage extends BasePage {
 
     }
 
-    public boolean okDeleteButton(String projectName) {
+    public void okDeleteButton(String projectName) {
         driver.findElement(OK_BUTTON_CONFIRMATION_XPATH).click();
         driver.findElement(SUCCESS_DELETE_MESSAGE_CSS).isDisplayed();
-        try {
-            driver.findElement(By.xpath(String.format(PROJECT_VALIDATION_XPATH, projectName))).isDisplayed();
-            return false;
-        } catch (Exception exception) {
-            Assert.fail("Project was not disappeared!");
-            return true;
-        }
     }
 
     public void validationProject(String name) {
@@ -82,7 +67,6 @@ public class ProjectPage extends BasePage {
         } catch (Exception exception) {
             Assert.fail("Project was not added");
         }
-
     }
 
     public void isPageOpen(String labelName) {

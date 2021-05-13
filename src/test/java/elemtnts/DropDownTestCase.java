@@ -9,8 +9,8 @@ public class DropDownTestCase {
 
     WebDriver driver;
     String label;
-    public static final String DROPDOWN_TEST_CASE_XPATH = "//*[@class='io-label']/../div//*[@class='chzn-results']/*[contains(text(),'%S')]";
-    public static final String CLICK_DROPDOWN_XPATH = "//*[@class='chzn-single']/*[contains(text(),'%S')]";
+    public static final String DROPDOWN_TEST_CASE_XPATH = "//*[@class='chzn-drop']/*/*[contains(text(),'%s')]";//"//*[@class='io-label']/../div//*[@class='chzn-results']/*[contains(text(),'%s')]";
+    public static final String CLICK_DROPDOWN_XPATH = "//*[contains(text(),'%s')]/../*/*[contains(@class,'chzn-single')]";
 
     public DropDownTestCase(WebDriver driver, String label) {
         this.driver = driver;
