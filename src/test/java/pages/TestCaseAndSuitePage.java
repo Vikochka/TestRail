@@ -31,11 +31,9 @@ public class TestCaseAndSuitePage extends BasePage {
         driver.findElement(ADD_TEST_CASE_BUTTON_ID).click();
     }
 
-    public boolean deleteTestCase(String testSuiteName, String testCaseName) {
-        driver.findElement(By.xpath(String.format(TEST_SUITE_NAME_XPATH, testSuiteName))).click();
-        WebElement testCase = driver.findElement(By.xpath(String.format(TITLE_TEST_CASE_XPATH, testCaseName)));
-        String testCaseId = testCase.getAttribute("href").split("/")[7];
-        driver.findElement(By.cssSelector(String.format(CHECK_BOX_TEST_CASE_CSS, testCaseId))).click();
+    public boolean deleteTestCase(String testCaseName) {
+        String checkbox = "//span[contains(text(),'%s') and contains(@class,'title')]/ancestor::tr//input";
+        driver.findElement(By.xpath(String.format(checkbox, testCaseName))).click();
         driver.findElement(DELETE_BUTTON_ID).click();
         driver.findElement(MARK_AS_DELETE_BUTTON).click();
 
@@ -43,7 +41,7 @@ public class TestCaseAndSuitePage extends BasePage {
             driver.findElement(By.xpath(String.format(TITLE_TEST_CASE_XPATH, testCaseName))).isDisplayed();
             return false;
         } catch (Exception exception) {
-            Assert.fail("Project was not disappeared!");
+            Assert.fail("Test-case did not disappear " + testCaseName);
             return true;
         }
     }

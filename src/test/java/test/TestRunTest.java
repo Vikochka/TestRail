@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 public class TestRunTest extends BaseTest {
 
     @Test(description = "Create Test Run")
-    public void addTestRunTest() {
+    public void addTestRun() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
         // projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");

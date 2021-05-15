@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 public class TestCaseTest extends BaseTest {
 
     @Test(description = "Create one test-case")
-    public void createOneTestcaseTest() {
+    public void createOneTestcase() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
         //   projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
@@ -19,7 +19,7 @@ public class TestCaseTest extends BaseTest {
     }
 
     @Test(description = "Create test-cases")
-    public void createTestcaseTest() {
+    public void createTestcase() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
         // projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
@@ -34,7 +34,7 @@ public class TestCaseTest extends BaseTest {
         testCaseSteps.createTestCase(testCase);
         testCaseSteps.saveAndNextButton();
 
-        TestCase testCase2 = new TestCase("Create new project", "Test Case", "Test Case( Text)",
+        TestCase testCase2 = new TestCase("Create new project", "Test Case", "Test Case (Text)",
                 "Automated", "Low", "", "-", "None",
                 "Быть авторезированным пользователем",
                 "1.кликнуть administration. " +
@@ -46,8 +46,8 @@ public class TestCaseTest extends BaseTest {
         testCaseSteps.saveButton();
     }
 
-    @Test(description = "Delete test-case:{testCaseName}")
-    public void deleteTestCaseTest() {
+    @Test(description = "Delete test-case")
+    public void deleteTestCase() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
         //   projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
@@ -57,6 +57,7 @@ public class TestCaseTest extends BaseTest {
         testCaseSteps.createTestSuite("Login", " ");
         testCaseSteps.createTestCase(testCase);
         testCaseSteps.saveButton();
-        testCaseSteps.delete("TestRail", "Login");
+        testCaseSteps.goToSection("Test Cases");
+        testCaseSteps.delete(testCase.getTitle());
     }
 }

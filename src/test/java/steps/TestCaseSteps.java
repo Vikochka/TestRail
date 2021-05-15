@@ -65,9 +65,7 @@ public class TestCaseSteps {
 
 
     @Step("Delete Test-case")
-    public void delete(String testSuiteName, String testCaseName) {
-        testCaseAndSuitePage.openTestCasePage();
-        testCaseAndSuitePage.openTestCasePage();
-        testCaseAndSuitePage.deleteTestCase(testSuiteName, testCaseName);
+    public void delete(String testCaseName) {
+        testCaseAndSuitePage.deleteTestCase(testCaseName);
     }
 }
