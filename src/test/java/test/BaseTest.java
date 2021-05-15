@@ -12,7 +12,7 @@ import steps.*;
 
 import java.util.concurrent.TimeUnit;
 
-@Listeners
+@Listeners(TestListener.class)
 public class BaseTest {
     public String login = "vikakatestrail@mailinator.com";
     public String password = "Rs5XGzbZ4VBqS5pnrs.o";

@@ -1,10 +1,12 @@
 package pages;
 
+import lombok.extern.log4j.Log4j2;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+@Log4j2
 public class TestCaseAndSuitePage extends BasePage {
     public static final By ADD_TEST_CASE_BUTTON_ID = By.id("sidebar-cases-add");
     public static final By ADD_TEST_SUITE_BUTTON_ID = By.id("navigation-suites-add");
@@ -42,6 +44,7 @@ public class TestCaseAndSuitePage extends BasePage {
             return false;
         } catch (Exception exception) {
             Assert.fail("Test-case did not disappear " + testCaseName);
+            log.error(exception.getMessage());
             return true;
         }
     }
