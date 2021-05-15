@@ -9,7 +9,7 @@ public class TestCaseTest extends BaseTest {
     public void createOneTestcaseTest() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-     //   projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
+        //   projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
         TestCase testCase = new TestCase("TestRun", "Test Case", "Test Case (Text)", "Automated", "High", "",
                 "-", "None", "Быть зарегистрированным пользователем", "steps", "Open Dashboard page");
@@ -22,7 +22,7 @@ public class TestCaseTest extends BaseTest {
     public void createTestcaseTest() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-       // projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
+        // projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
 
         TestCase testCase = new TestCase("Login", "Test Case", "Test Case (Text)", "Automated",
@@ -35,23 +35,28 @@ public class TestCaseTest extends BaseTest {
         testCaseSteps.saveAndNextButton();
 
         TestCase testCase2 = new TestCase("Create new project", "Test Case", "Test Case( Text)",
-                "Automated", "Low", "","-", "None",
+                "Automated", "Low", "", "-", "None",
                 "Быть авторезированным пользователем",
                 "1.кликнуть administration. " +
-                "2.выбрать projects " +
-                "3. кликнуть add project" +
-                "4.заполнить форму" +
-                "5.кликнуть add project", "Откроется Projects page");
+                        "2.выбрать projects " +
+                        "3. кликнуть add project" +
+                        "4.заполнить форму" +
+                        "5.кликнуть add project", "Откроется Projects page");
         testCaseSteps.addTestCase(testCase2);
         testCaseSteps.saveButton();
     }
 
     @Test(description = "Delete test-case:{testCaseName}")
-    public void deleteTestCaseTest(){
+    public void deleteTestCaseTest() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-      //  projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
+        //   projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
-        testCaseSteps.delete("TestRail","Login");
+        TestCase testCase = new TestCase("TestRun", "Test Case", "Test Case (Text)", "Automated", "High", "",
+                "-", "None", "Быть зарегистрированным пользователем", "steps", "Open Dashboard page");
+        testCaseSteps.createTestSuite("Login", " ");
+        testCaseSteps.createTestCase(testCase);
+        testCaseSteps.saveButton();
+        testCaseSteps.delete("TestRail", "Login");
     }
 }

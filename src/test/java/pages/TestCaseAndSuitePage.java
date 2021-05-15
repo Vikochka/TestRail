@@ -31,8 +31,8 @@ public class TestCaseAndSuitePage extends BasePage {
         driver.findElement(ADD_TEST_CASE_BUTTON_ID).click();
     }
 
-    public boolean deleteTestCase(String testSuiteName,String testCaseName) {
-        driver.findElement(By.xpath(String.format(TEST_SUITE_NAME_XPATH,testSuiteName))).click();
+    public boolean deleteTestCase(String testSuiteName, String testCaseName) {
+        driver.findElement(By.xpath(String.format(TEST_SUITE_NAME_XPATH, testSuiteName))).click();
         WebElement testCase = driver.findElement(By.xpath(String.format(TITLE_TEST_CASE_XPATH, testCaseName)));
         String testCaseId = testCase.getAttribute("href").split("/")[7];
         driver.findElement(By.cssSelector(String.format(CHECK_BOX_TEST_CASE_CSS, testCaseId))).click();

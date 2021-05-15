@@ -34,7 +34,7 @@ public class BaseTest {
         loginStep = new LoginSteps(driver);
         administrationSteps = new AdministrationSteps(driver);
         projectSteps = new ProjectSteps(driver);
-        projectPage =new ProjectPage(driver);
+        projectPage = new ProjectPage(driver);
         testCaseSteps = new TestCaseSteps(driver);
         testRunSteps = new TestRunSteps(driver);
     }

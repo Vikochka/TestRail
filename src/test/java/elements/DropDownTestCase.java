@@ -7,10 +7,10 @@ import org.testng.Assert;
 
 public class DropDownTestCase {
 
-    WebDriver driver;
-    String label;
     public static final String DROPDOWN_TEST_CASE_XPATH = "//*[contains(@class,'chzn-container-active')]//li[contains(text(),'%s')]";//"//*[@class='io-label']/../div//*[@class='chzn-results']/*[contains(text(),'%s')]";
     public static final String CLICK_DROPDOWN_XPATH = "//*[contains(text(),'%s')]/../*/*[contains(@class,'chzn-single')]";
+    WebDriver driver;
+    String label;
 
     public DropDownTestCase(WebDriver driver, String label) {
         this.driver = driver;

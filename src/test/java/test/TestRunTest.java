@@ -8,9 +8,9 @@ public class TestRunTest extends BaseTest {
     public void addTestRunTest() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-       // projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
+        // projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
-        testRunSteps.addTestRun("TestRail","Login"," ","Me","blabla","Include all test cases");
+        testRunSteps.addTestRun("TestRail", "Login", " ", "Me", "blabla", "Include all test cases");
     }
 
 
