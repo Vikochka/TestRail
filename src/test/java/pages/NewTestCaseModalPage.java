@@ -1,8 +1,8 @@
 package pages;
 
-import elemtnts.DropDownTestCase;
-import elemtnts.InputTestCase;
-import elemtnts.TextAreaTestCase;
+import elements.DropDownTestCase;
+import elements.InputTestCase;
+import elements.TextAreaTestCase;
 import modals.TestCase;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,10 +22,10 @@ public class NewTestCaseModalPage extends BasePage {
 
     public void createTestCase(TestCase testCase) {
         new InputTestCase(driver, "Title").inputTestCase(testCase.getTitle());
-//        new DropDownTestCase(driver, "Section").selectForTestCase(testCase.getSection());
-//        new DropDownTestCase(driver, "Template").selectForTestCase(testCase.getTemplate());
-//        new DropDownTestCase(driver, "Type").selectForTestCase(testCase.getType());
-//        new DropDownTestCase(driver, "Priority").selectForTestCase(testCase.getPriority());
+        new DropDownTestCase(driver, "Section").selectForTestCase(testCase.getSection());
+        new DropDownTestCase(driver, "Template").selectForTestCase(testCase.getTemplate());
+        new DropDownTestCase(driver, "Type").selectForTestCase(testCase.getType());
+        new DropDownTestCase(driver, "Priority").selectForTestCase(testCase.getPriority());
         new InputTestCase(driver, "Estimate").inputTestCase(testCase.getEstimate());
         // new InputTestCase(driver, "References").inputTestCase(testCase.getReferences());
         new DropDownTestCase(driver, "Automation Type").selectForTestCase(testCase.getAutomationType());

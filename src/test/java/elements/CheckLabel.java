@@ -1,4 +1,4 @@
-package elemtnts;
+package elements;
 
 import org.openqa.selenium.WebDriver;
 

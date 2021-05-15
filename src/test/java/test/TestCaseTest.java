@@ -1,6 +1,5 @@
 package test;
 
-import io.qameta.allure.Step;
 import modals.TestCase;
 import org.testng.annotations.Test;
 
@@ -12,7 +11,7 @@ public class TestCaseTest extends BaseTest {
         administrationSteps.admin("Project");
      //   projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
-        TestCase testCase = new TestCase("TestRun", "Test Case", "Test Case(Text)", "Automated", "High", "",
+        TestCase testCase = new TestCase("TestRun", "Test Case", "Test Case (Text)", "Automated", "High", "",
                 "-", "None", "Быть зарегистрированным пользователем", "steps", "Open Dashboard page");
         testCaseSteps.createTestSuite("Login", " ");
         testCaseSteps.createTestCase(testCase);
@@ -26,7 +25,7 @@ public class TestCaseTest extends BaseTest {
        // projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
 
-        TestCase testCase = new TestCase("Login", "Test Case", "Test Case(Text)", "Automated",
+        TestCase testCase = new TestCase("Login", "Test Case", "Test Case (Text)", "Automated",
                 "High", "",
                 "-", "None", "Быть зарегистрированным пользователем",
                 "1.Открыть страницу логина.2.Ввести логин 3.Ввести пароль. 4.Кликнуть конпку Логин",
@@ -35,7 +34,7 @@ public class TestCaseTest extends BaseTest {
         testCaseSteps.createTestCase(testCase);
         testCaseSteps.saveAndNextButton();
 
-        TestCase testCase2 = new TestCase("Create new project", "Test Case", "Test Case(Text)",
+        TestCase testCase2 = new TestCase("Create new project", "Test Case", "Test Case( Text)",
                 "Automated", "Low", "","-", "None",
                 "Быть авторезированным пользователем",
                 "1.кликнуть administration. " +

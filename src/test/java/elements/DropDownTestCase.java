@@ -1,4 +1,4 @@
-package elemtnts;
+package elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -9,7 +9,7 @@ public class DropDownTestCase {
 
     WebDriver driver;
     String label;
-    public static final String DROPDOWN_TEST_CASE_XPATH = "//*[@class='chzn-drop']/*/*[contains(text(),'%s')]";//"//*[@class='io-label']/../div//*[@class='chzn-results']/*[contains(text(),'%s')]";
+    public static final String DROPDOWN_TEST_CASE_XPATH = "//*[contains(@class,'chzn-container-active')]//li[contains(text(),'%s')]";//"//*[@class='io-label']/../div//*[@class='chzn-results']/*[contains(text(),'%s')]";
     public static final String CLICK_DROPDOWN_XPATH = "//*[contains(text(),'%s')]/../*/*[contains(@class,'chzn-single')]";
 
     public DropDownTestCase(WebDriver driver, String label) {
