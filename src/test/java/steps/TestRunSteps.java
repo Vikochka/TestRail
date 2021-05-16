@@ -12,11 +12,11 @@ public class TestRunSteps {
     }
 
     @Step("Add Test run")
-    public void addTestRun(String suiteName,String nameRun, String references, String assignTo, String description, String radioButton) {
-        TestRunAndResultsPage testRunAndResultsPage= new TestRunAndResultsPage(driver);
+    public void addTestRun(String suiteName, String nameRun, String references, String assignTo, String description, String radioButton) {
+        TestRunAndResultsPage testRunAndResultsPage = new TestRunAndResultsPage(driver);
         testRunAndResultsPage.openTestRunPage();
         testRunAndResultsPage.clickAddTestRunButton();
         testRunAndResultsPage.selectTestSuite(suiteName);
-        testRunAndResultsPage.addTestRunForm(nameRun,references,assignTo,description,radioButton);
+        testRunAndResultsPage.addTestRunForm(nameRun, references, assignTo, description, radioButton);
     }
 }

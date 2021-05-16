@@ -12,7 +12,7 @@ import steps.*;
 
 import java.util.concurrent.TimeUnit;
 
-@Listeners
+@Listeners(TestListener.class)
 public class BaseTest {
     public String login = "vikakatestrail@mailinator.com";
     public String password = "Rs5XGzbZ4VBqS5pnrs.o";
@@ -34,7 +34,7 @@ public class BaseTest {
         loginStep = new LoginSteps(driver);
         administrationSteps = new AdministrationSteps(driver);
         projectSteps = new ProjectSteps(driver);
-        projectPage =new ProjectPage(driver);
+        projectPage = new ProjectPage(driver);
         testCaseSteps = new TestCaseSteps(driver);
         testRunSteps = new TestRunSteps(driver);
     }

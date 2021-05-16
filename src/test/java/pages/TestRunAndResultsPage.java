@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-import static elemtnts.CheckLabel.CHECK_LABEL_XPATH;
+import static elements.CheckLabel.CHECK_LABEL_XPATH;
 
 public class TestRunAndResultsPage extends BasePage {
     public static final By TEST_RUN_PAGE_ID = By.id("navigation-runs");

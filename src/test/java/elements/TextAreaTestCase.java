@@ -1,4 +1,4 @@
-package elemtnts;
+package elements;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -8,7 +8,7 @@ import org.testng.Assert;
 public class TextAreaTestCase {
     WebDriver driver;
     String label;
-    public static final String TEXT_AREA_TEST_CASE_XPATH = "//label[contains(text(),'')]/..//*[contains(@class,'form-control form-control-full field-editor ')]";//НЕ РАБОТАЕТ
+    public static final String TEXT_AREA_TEST_CASE_XPATH = "//label[contains(text(),'')]/..//*[contains(@class,'form-control form-control-full field-editor ')]";
 
     public TextAreaTestCase(WebDriver driver, String label) {
         this.driver = driver;

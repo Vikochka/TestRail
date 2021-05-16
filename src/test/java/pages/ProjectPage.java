@@ -9,11 +9,10 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-import static elemtnts.CheckLabel.CHECK_LABEL_XPATH;
+import static elements.CheckLabel.CHECK_LABEL_XPATH;
 
 public class ProjectPage extends BasePage {
     public static final String ADD_PROJECT_BUTTON_XPATH = "//*[@class='button-group grid-buttons bottom']/*[contains(text(),'Add Project')]";
@@ -37,14 +36,14 @@ public class ProjectPage extends BasePage {
     //https://vikaka1.testrail.io/index.php?/projects/overview/55
     @Step("Click at small icon")
     public void clickSmallIcon(String projectName) {
-            WebElement project = driver.findElement(By.xpath(String.format(PROJECT_VALIDATION_XPATH, projectName)));
-            String projectId = project.getAttribute("href").split("/")[7];
-            driver.get(URL + "?/projects/overview/" + projectId);
-            try {
-                driver.findElement(By.xpath(String.format(PAGE_TITLE_XPATH, projectName))).isDisplayed();
-            } catch (Exception exception) {
-                Assert.fail("Page was not opened");
-            }
+        WebElement project = driver.findElement(By.xpath(String.format(PROJECT_VALIDATION_XPATH, projectName)));
+        String projectId = project.getAttribute("href").split("/")[7];
+        driver.get(URL + "?/projects/overview/" + projectId);
+        try {
+            driver.findElement(By.xpath(String.format(PAGE_TITLE_XPATH, projectName))).isDisplayed();
+        } catch (Exception exception) {
+            Assert.fail("Page was not opened");
+        }
     }
 
     @Step("Click delete project")

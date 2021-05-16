@@ -1,12 +1,11 @@
 package pages;
 
-import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
-import static elemtnts.CheckLabel.CHECK_LABEL_XPATH;
+import static elements.CheckLabel.CHECK_LABEL_XPATH;
 
 public class AddProjectPage extends BasePage {
 

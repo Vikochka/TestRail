@@ -13,14 +13,19 @@ import pages.TestCaseAndSuitePage;
  */
 public class TestCaseSteps extends BaseSteps {
 
+    WebDriver driver;
+    TestCaseAndSuitePage testCaseAndSuitePage;
+    NewTestCaseModalPage newTestCaseModalPage;
+
     public TestCaseSteps(WebDriver driver) {
         this.driver = driver;
+        testCaseAndSuitePage = new TestCaseAndSuitePage(driver);
+        newTestCaseModalPage = new NewTestCaseModalPage(driver);
+
     }
 
     @Step("Create test-suite")
     public void createTestSuite(String suiteName, String descriptionSuite) {
-        ProjectPage projectPage=new ProjectPage(driver);
-        TestCaseAndSuitePage testCaseAndSuitePage = new TestCaseAndSuitePage(driver);
         testCaseAndSuitePage.openTestCasePage();
         testCaseAndSuitePage.clickAddTestSuite();
         SuiteListPage suiteListPage = new SuiteListPage(driver);
@@ -30,40 +35,37 @@ public class TestCaseSteps extends BaseSteps {
 
     @Step("Create test-case")
     public void createTestCase(TestCase testCase) {
-        TestCaseAndSuitePage testCaseAndSuitePage = new TestCaseAndSuitePage(driver);
         testCaseAndSuitePage.clickAddTestCase();
-        NewTestCaseModalPage newTestCaseModalPage = new NewTestCaseModalPage(driver);
         newTestCaseModalPage.createTestCase(testCase);
     }
 
     @Step("Add next test case")
-    public void addTestCase(TestCase testCase){
-        NewTestCaseModalPage newTestCaseModalPage = new NewTestCaseModalPage(driver);
+    public void addTestCase(TestCase testCase) {
         newTestCaseModalPage.createTestCase(testCase);
     }
+
     @Step("Click on Save button")
     public void saveButton() {
-        NewTestCaseModalPage newTestCaseModalPage = new NewTestCaseModalPage(driver);
         newTestCaseModalPage.clickSaveTestCase();
     }
 
     @Step("Click on Save And Next button")
     public void saveAndNextButton() {
-        NewTestCaseModalPage newTestCaseModalPage = new NewTestCaseModalPage(driver);
         newTestCaseModalPage.clickSaveAndNextTestCase();
     }
 
     @Step("Click on Cancel button")
     public void cancelButton() {
-        NewTestCaseModalPage newTestCaseModalPage = new NewTestCaseModalPage(driver);
         newTestCaseModalPage.clickCancelTestCase();
     }
 
+    @Step("Click breadcrumb")
+    public void goToSection(String sectionName) {
+        testCaseAndSuitePage.clickBreadCrumb(sectionName);
+    }
+
     @Step("Delete Test-case")
-    public void delete(String testSuiteName,String testCaseName){
-        TestCaseAndSuitePage testCaseAndSuitePage = new TestCaseAndSuitePage(driver);
-        testCaseAndSuitePage.openTestCasePage();
-        testCaseAndSuitePage.openTestCasePage();
-        testCaseAndSuitePage.deleteTestCase(testSuiteName, testCaseName);
+    public void delete(String testCaseName) {
+        testCaseAndSuitePage.deleteTestCase(testCaseName);
     }
 }
