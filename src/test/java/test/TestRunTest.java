@@ -9,14 +9,14 @@ public class TestRunTest extends BaseTest {
     public void addTestRun() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-        projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
-
+        //  projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
-        TestCase testCase = new TestCase("TestRun", "Test Case", "Test Case (Text)", "Automated", "High", "",
-                "-", "None", "Быть зарегистрированным пользователем", "steps", "Open Dashboard page");
-        testCaseSteps.createTestSuite("Login", " ");
-        testCaseSteps.createTestCase(testCase);
-        testCaseSteps.saveButton();
+
+//        TestCase testCase = new TestCase("TestRun", "Test Case", "Test Case (Text)", "Automated", "High", "",
+//                "-", "None", "Быть зарегистрированным пользователем", "steps", "Open Dashboard page");
+//        testCaseSteps.createTestSuite("Login", " ");
+//        testCaseSteps.createTestCase(testCase);
+//        testCaseSteps.saveButton();
         testRunSteps.addTestRun("Login", " ", " ", "Me", "blabla", "Include all test cases");
     }
 
