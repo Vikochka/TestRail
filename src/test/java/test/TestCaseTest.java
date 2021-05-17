@@ -10,7 +10,7 @@ public class TestCaseTest extends BaseTest {
     public void createOneTestcase() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-        projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
+       // projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
         TestCase testCase = new TestCase("TestRun", "Test Case", "Test Case (Text)", "Automated", "High", "",
                 "-", "None", "Быть зарегистрированным пользователем", "steps", "Open Dashboard page");
@@ -20,7 +20,7 @@ public class TestCaseTest extends BaseTest {
     }
 
     @Test(description = "Create test-cases")
-    public void createTestcase() {
+    public void createTestcases() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
        //  projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
