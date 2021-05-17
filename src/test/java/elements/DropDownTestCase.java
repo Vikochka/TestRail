@@ -12,7 +12,7 @@ public class DropDownTestCase {
 
     public static final String DROPDOWN_TEST_CASE_XPATH ="//*[contains(text(),'%s')]/..//*[@class='chzn-container chzn-container-single']";
 
-    public static final String CLICK_DROPDOWN_XPATH ="//*[@class='chzn-drop']/*/*[contains(text(),'%s')]";
+        public static final String CLICK_DROPDOWN_XPATH ="//*[@class='chzn-drop']/*/*[contains(text(),'%s')]";
 
 
     public DropDownTestCase(WebDriver driver, String label) {
