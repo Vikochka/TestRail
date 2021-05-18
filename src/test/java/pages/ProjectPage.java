@@ -33,7 +33,6 @@ public class ProjectPage extends BasePage {
         driver.findElement(By.xpath(String.format(ADD_PROJECT_BUTTON_XPATH))).click();
     }
 
-    //https://vikaka1.testrail.io/index.php?/projects/overview/55
     @Step("Click at small icon")
     public void clickSmallIcon(String projectName) {
         WebElement project = driver.findElement(By.xpath(String.format(PROJECT_VALIDATION_XPATH, projectName)));

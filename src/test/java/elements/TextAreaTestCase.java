@@ -15,7 +15,7 @@ public class TextAreaTestCase {
         this.label = label;
     }
 
-    public void textAreaTestCase(String text){
+    public void textAreaTestCase(String text) {
         try {
             driver.findElement(By.xpath(String.format(TEXT_AREA_TEST_CASE_XPATH, label))).sendKeys(text);
         } catch (NoSuchElementException ex) {

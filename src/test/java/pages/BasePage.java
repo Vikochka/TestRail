@@ -20,5 +20,4 @@ public class BasePage {
         driver.findElement(By.xpath(String.format(breadcrumbLink, breadcrumb))).click();
         return this;
     }
-
 }

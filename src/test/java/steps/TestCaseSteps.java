@@ -4,7 +4,6 @@ import io.qameta.allure.Step;
 import modals.TestCase;
 import org.openqa.selenium.WebDriver;
 import pages.NewTestCaseModalPage;
-import pages.ProjectPage;
 import pages.SuiteListPage;
 import pages.TestCaseAndSuitePage;
 
