@@ -1,6 +1,5 @@
 package test;
 
-import io.qameta.allure.Step;
 import modals.TestCase;
 import org.testng.annotations.Test;
 

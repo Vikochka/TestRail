@@ -10,8 +10,7 @@ import pages.TestCaseAndSuitePage;
 /**
  * TODO ДОБАВИТЬ STEPS
  */
-public class TestCaseSteps extends BaseSteps {
-
+public class TestCaseSteps {
     WebDriver driver;
     TestCaseAndSuitePage testCaseAndSuitePage;
     NewTestCaseModalPage newTestCaseModalPage;

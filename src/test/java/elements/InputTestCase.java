@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class InputTestCase {
+    public static final String INPUT_TEST_CASE_XPATH = "//*[contains(text(),'%s')]/../input[contains(@class,'form-fields')]";
     WebDriver driver;
     String label;
-    public static final String INPUT_TEST_CASE_XPATH = "//*[contains(text(),'%s')]/../input[contains(@class,'form-fields')]";
 
     public InputTestCase(WebDriver driver, String label) {
         this.driver = driver;
