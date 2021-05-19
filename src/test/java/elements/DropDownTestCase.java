@@ -7,10 +7,12 @@ import org.testng.Assert;
 
 public class DropDownTestCase {
 
-    public static final String DROPDOWN_TEST_CASE_XPATH = "//*[contains(@class,'chzn-container-active')]//li[contains(text(),'%s')]";//"//*[@class='io-label']/../div//*[@class='chzn-results']/*[contains(text(),'%s')]";
-    public static final String CLICK_DROPDOWN_XPATH = "//*[contains(text(),'%s')]/../*/*[contains(@class,'chzn-single')]";
     WebDriver driver;
     String label;
+
+    public static final String DROPDOWN_TEST_CASE_XPATH = "//*[contains(text(),'%s')]/..//*[@class='chzn-container chzn-container-single']";
+    public static final String CLICK_DROPDOWN_XPATH = "//*[@class='chzn-drop']/*/*[contains(text(),'%s')]";
+
 
     public DropDownTestCase(WebDriver driver, String label) {
         this.driver = driver;
@@ -18,9 +20,9 @@ public class DropDownTestCase {
     }
 
     public void selectForTestCase(String selectName) {
-        driver.findElement(By.xpath(String.format(CLICK_DROPDOWN_XPATH, label))).click();
+        driver.findElement(By.xpath(String.format(DROPDOWN_TEST_CASE_XPATH, label))).click();
         try {
-            driver.findElement(By.xpath(String.format(DROPDOWN_TEST_CASE_XPATH, selectName))).click();
+            driver.findElement(By.xpath(String.format(CLICK_DROPDOWN_XPATH, selectName))).click();
         } catch (NoSuchElementException ex) {
             Assert.fail(String.format("Cannot find option '%s'", selectName));
         }

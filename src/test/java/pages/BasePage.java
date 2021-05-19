@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
-    public static final String URL = "https://vikakatestrail.testrail.io/index.php"; //будет меняться
+    public static final String URL = "https://vikakatestrail.testrail.io/index.php";
     WebDriver driver;
     WebDriverWait wait;
 
@@ -20,5 +20,4 @@ public class BasePage {
         driver.findElement(By.xpath(String.format(breadcrumbLink, breadcrumb))).click();
         return this;
     }
-
 }

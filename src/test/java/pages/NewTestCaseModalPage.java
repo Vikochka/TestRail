@@ -29,9 +29,9 @@ public class NewTestCaseModalPage extends BasePage {
         new InputTestCase(driver, "Estimate").inputTestCase(testCase.getEstimate());
         // new InputTestCase(driver, "References").inputTestCase(testCase.getReferences());
         new DropDownTestCase(driver, "Automation Type").selectForTestCase(testCase.getAutomationType());
-        new TextAreaTestCase(driver, "Preconditions").textAreaTestCase(testCase.getPreconditions());
-        new TextAreaTestCase(driver, "Steps").textAreaTestCase(testCase.getSteps());
-        new TextAreaTestCase(driver, "Expected Result").textAreaTestCase(testCase.getExpectedResult());
+        new TextAreaTestCase(driver, "preconditions").textAreaTestCase(testCase.getPreconditions());
+        new TextAreaTestCase(driver, "steps").textAreaTestCase(testCase.getSteps());
+        new TextAreaTestCase(driver, "expected result").textAreaTestCase(testCase.getExpectedResult());
     }
 
     public void clickSaveTestCase() {

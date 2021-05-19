@@ -4,7 +4,6 @@ import io.qameta.allure.Step;
 import modals.TestCase;
 import org.openqa.selenium.WebDriver;
 import pages.NewTestCaseModalPage;
-import pages.ProjectPage;
 import pages.SuiteListPage;
 import pages.TestCaseAndSuitePage;
 
@@ -62,7 +61,6 @@ public class TestCaseSteps {
     public void goToSection(String sectionName) {
         testCaseAndSuitePage.clickBreadCrumb(sectionName);
     }
-
 
     @Step("Delete Test-case")
     public void delete(String testCaseName) {

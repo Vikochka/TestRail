@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Regression Test" parallel="tests" thread-count="2">
-    <test name="test 1">
+    <test name="Firefox">
+        <parameter name="browser" value="firefox"></parameter>
         <classes>
-            <class name=" "/>
+            <class name="test.LoginTest"/>
+            <class name="test.AdministrationTest"/>
+            <class name="test.ProjectTest"/>
+            <class name="test.TestCaseTest"/>
+            <class name="test.TestRunTest"/>
         </classes>
     </test> <!-- Test -->
-    <test name="test 2">
+    <test name="Chrome">
+        <parameter name="browser" value="chrome"></parameter>
         <classes>
-            <class name=""/>
+            <class name="test.LoginTest"/>
+            <class name="test.AdministrationTest"/>
+            <class name="test.ProjectTest"/>
+            <class name="test.TestCaseTest"/>
+            <class name="test.TestRunTest"/>
         </classes>
     </test> <!-- Test -->
 </suite>

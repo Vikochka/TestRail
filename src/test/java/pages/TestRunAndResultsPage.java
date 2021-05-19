@@ -19,10 +19,12 @@ public class TestRunAndResultsPage extends BasePage {
     public static final By REFERENCES_ID = By.id("refs");
     public static final By MILESTONE_ID = By.id("milestone_id_chzn");
     public static final By ASSIGN_TO_ID = By.id("assignedto_id_chzn");
-    public static final String SEARCH_DROP_XPATH = "//*[@class='chzn-search']/../../../..//*[contains(text(),'Assign To')]";
     public static final String SELECT_DROP_XPATH = "//*[@class='chzn-search']/../../../..//*[contains(@class,'active-result')][contains(text(),'%s')]";
     public static final String RADIO_BUTTON_XPATH = "//*[@class='radio']//*[contains(text(),'%s')]";
     public static final By ADD_TEST_RUN_FORM_BUTTON_ID = By.id("accept");
+    public static final String TEST_SUITE_NAME_XPATH = "//*[@class='summary-title text-ppp']//*[contains(text(),'%s')]";
+    public static final String TEST_CASE_NAME_XPATH = "//*[@class=\"row odd highlighted\"]//a[contains(text(),'%s')]";
+    public static final By ADD_RESULT_BUTTON = By.id("sidebar-tests-addresult");
 
     public TestRunAndResultsPage(WebDriver driver) {
         super(driver);
@@ -57,6 +59,18 @@ public class TestRunAndResultsPage extends BasePage {
         driver.findElement(DESCRIPTION_ID).sendKeys(description);
         driver.findElement(By.xpath(String.format(RADIO_BUTTON_XPATH, radioButton)));
         driver.findElement(ADD_TEST_RUN_FORM_BUTTON_ID).click();
+    }
+
+    public void selectTestRun(String suiteName) {
+        driver.findElement(By.xpath(String.format(TEST_SUITE_NAME_XPATH, suiteName))).click();
+    }
+
+    public void selectTestCase(String testCaseName) {
+        driver.findElement(By.xpath(String.format(TEST_CASE_NAME_XPATH, testCaseName))).click();
+    }
+
+    public void clickAddResultButton() {
+        driver.findElement(ADD_RESULT_BUTTON).click();
     }
 
     private void isAddRunPageOpen() {

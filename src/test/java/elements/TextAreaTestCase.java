@@ -6,9 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 public class TextAreaTestCase {
-    public static final String TEXT_AREA_TEST_CASE_XPATH = "//label[contains(text(),'')]/..//*[contains(@class,'form-control form-control-full field-editor ')]";//НЕ РАБОТАЕТ
     WebDriver driver;
     String label;
+    public static final String TEXT_AREA_TEST_CASE_XPATH = "//*[@class='form-description form-description-full' and contains(text(),'%s')]/..//*[contains(@class,'form-control ')]";
 
     public TextAreaTestCase(WebDriver driver, String label) {
         this.driver = driver;
