@@ -14,14 +14,15 @@ public class TestRunTest extends BaseTest {
         testRunSteps.addTestRun("Login", " ", " ", "Me", "blabla", "Include all test cases");
     }
 
-    @Test(description = "Add test resul", priority = 2)
-    public void addTestResult() {
+    @Test(description = "Add test result", priority = 2)
+    public void addTestResultTest() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
         //  projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
-        testRunSteps.addResult("Login", "", "TestRun", "Retest", "retest test case", "Me",
+        testRunSteps.addResult("Login", "", "TestRun", "Blocked", "retest test case", "Me",
                 "1.0", "30s", "no");
-
+        administrationSteps.admin("Projects");
+        projectSteps.deleteProject("TestRail");
     }
 }
