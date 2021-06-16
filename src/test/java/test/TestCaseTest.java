@@ -9,20 +9,22 @@ public class TestCaseTest extends BaseTest {
     public void createOneTestcase() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-       // projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
+        projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
         TestCase testCase = new TestCase("TestRun", "Test Case", "Test Case (Text)", "Automated", "High", "",
                 "-", "None", "Быть зарегистрированным пользователем", "steps", "Open Dashboard page");
         testCaseSteps.createTestSuite("Login", " ");
         testCaseSteps.createTestCase(testCase);
         testCaseSteps.saveButton();
+        administrationSteps.admin("Projects");
+        projectSteps.deleteProject("TestRail");
     }
 
     @Test(description = "Create test-cases")
     public void createTestcases() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-       //  projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
+        projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
 
         TestCase testCase = new TestCase("Create new  test case", "Test Case", "Test Case (Text)", "Automated",
@@ -41,13 +43,15 @@ public class TestCaseTest extends BaseTest {
                 "Откроется Projects page");
         testCaseSteps.addTestCase(testCase2);
         testCaseSteps.saveButton();
+        administrationSteps.admin("Projects");
+        projectSteps.deleteProject("TestRail");
     }
 
     @Test(description = "Delete test-case")
     public void deleteTestCase() {
         loginStep.login(login, password);
         administrationSteps.admin("Project");
-         //  projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
+        projectSteps.addProject("Use multiple test", "TestRail", "Diploma project");
         projectPage.clickSmallIcon("TestRail");
         TestCase testCase = new TestCase("TestRunDelete", "Test Case", "Test Case (Text)", "Automated", "High", "",
                 "-", "None", "Быть зарегистрированным пользователем", "steps", "Open Dashboard page");
@@ -56,5 +60,7 @@ public class TestCaseTest extends BaseTest {
         testCaseSteps.saveButton();
         testCaseSteps.goToSection("Test Cases");
         testCaseSteps.delete(testCase.getTitle());
+        administrationSteps.admin("Projects");
+        projectSteps.deleteProject("TestRail");
     }
 }

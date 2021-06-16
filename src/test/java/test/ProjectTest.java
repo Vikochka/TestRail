@@ -10,6 +10,8 @@ public class ProjectTest extends BaseTest {
         administrationSteps.admin("Project");
         projectSteps.addProject("Use multiple test suites to manage cases", "TestRail",
                 "Test Case Management");
+        administrationSteps.admin("Projects");
+        projectSteps.deleteProject("TestRail");
     }
 
     @Test(description = "Delete project ")
